@@ -13,8 +13,17 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        fredoka: ["var(--font-fredoka)"],
+        rubik: ["var(--font-rubik)"],
+      },
+      colors: {
+        "pasy-brown-bg": "#FFF6EB",
+        "pasy-brown-bg-second": "#FADEBD",
+        "pasy-brown-text": "#D37E17",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
 export default config;
