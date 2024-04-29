@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import ActionBtns from "../components/ActionBtns";
+import Header from "@/components/Header";
+import ActionBtns from "@/components/ActionBtns";
 
 const Searcher: React.FC = () => {
   return (

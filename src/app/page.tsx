@@ -7,6 +7,7 @@ import petFace from "../../public/home-pet-face.svg";
 import ItemList from "@/components/ItemList";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -79,6 +80,14 @@ export default function Home() {
           <ItemList />
         </section>
       </main>
+      <div>
+        <Link
+          href="/searcher"
+          className="font-fredoka text-3xl text-green-500 font-medium mx-auto "
+        >
+          Buscador
+        </Link>
+      </div>
       <Footer />
     </>
   );
