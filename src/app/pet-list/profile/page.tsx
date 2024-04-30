@@ -1,11 +1,11 @@
-import Header from "@/app/components/Header";
-import InfoTags from "@/app/components/InfoTags";
+import Header from "@/components/Header";
+import InfoTags from "@/components/InfoTags";
 import Image from "next/image";
 
 import iconHealth from "@/public/icon-health.svg";
 import iconMood from "@/public/icon-mood.svg";
 import iconAddress from "@/public/icon-ref-address.svg";
-import ActionBtns from "@/app/components/ActionBtns";
+import ActionBtns from "@/components/ActionBtns";
 
 function Profile() {
   return (

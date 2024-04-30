@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Fredoka, Rubik } from "next/font/google";
-
 import "./globals.css";
+import { Providers } from "@/app/Providers";
 
 const fredoka = Fredoka({
   subsets: ["latin"],
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${rubik.variable} ${fredoka.variable}`}>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
