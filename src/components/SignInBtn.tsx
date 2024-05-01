@@ -5,7 +5,7 @@ import Image from "next/image";
 import googleIcon from "../../public/google-icon-session.svg";
 import Link from "next/link";
 
-function UserNavbar() {
+function SignInBtn() {
   const { data: session } = useSession();
   console.log(session);
 
@@ -45,4 +45,4 @@ function UserNavbar() {
     </div>
   );
 }
-export default UserNavbar;
+export default SignInBtn;

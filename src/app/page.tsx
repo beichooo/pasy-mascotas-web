@@ -7,8 +7,7 @@ import petFace from "../../public/home-pet-face.svg";
 import ItemList from "@/components/ItemList";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Link from "next/link";
-import UserNavbar from "@/components/UserNavbar";
+import SignInBtn from "@/components/SignInBtn";
 
 export default function Home() {
   return (
@@ -81,7 +80,7 @@ export default function Home() {
           <ItemList />
         </section>
       </main>
-      <UserNavbar />
+      <SignInBtn />
       <Footer />
     </>
   );
