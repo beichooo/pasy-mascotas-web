@@ -13,7 +13,7 @@ function SignInBtn() {
     <div className="flex justify-items-center p-4 flex-col gap-2">
       {session?.user ? (
         <div>
-          <p className="text-center text-pasy-brown-text font-base">
+          <p className="text-center text-pasy-brown-text font-base mb-2">
             Bienvenido {session.user.name}
           </p>
           <Link
@@ -30,7 +30,7 @@ function SignInBtn() {
         </div>
       ) : (
         <div>
-          <p className="text-center text-pasy-brown-text font-base">
+          <p className="text-center text-pasy-brown-text font-base mb-2">
             Para dar en adopción a una mascota debes registrarte
           </p>
           <button
