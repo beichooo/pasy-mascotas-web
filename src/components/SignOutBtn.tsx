@@ -1,19 +1,23 @@
-"use client";
-
-import { signOut } from "next-auth/react";
+// import { signOut } from "next-auth/react";
+import { signOut } from "@/auth";
 
 function SignOutBtn() {
   return (
     <>
       <div>
-        <button
-          onClick={() => {
-            signOut({ callbackUrl: "/" });
+        <form
+          action={async () => {
+            "use server";
+            await signOut({ redirectTo: "/" });
           }}
-          className="bg-red-500 text-white px-4 py-2 rounded-md"
         >
-          Cerrar sesión
-        </button>
+          <button
+            type="submit"
+            className="bg-red-500 text-white px-4 py-2 rounded-md"
+          >
+            Sign Out
+          </button>
+        </form>
       </div>
     </>
   );

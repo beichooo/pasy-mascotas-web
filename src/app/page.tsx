@@ -16,7 +16,6 @@ export default function Home() {
       <main>
         {/* hero section*/}
         <section className="flex justify-center flex-col align-middle p-2">
-          {/* TODO: Adjust the image for the white space */}
           <Image
             src={heroImage}
             alt="pets and house"
@@ -80,7 +79,7 @@ export default function Home() {
           <ItemList />
         </section>
       </main>
-      <div>
+      <div className="mb-4">
         <SignInBtn />
       </div>
       <Footer />
