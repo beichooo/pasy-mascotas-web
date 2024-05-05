@@ -9,9 +9,6 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  image: {
-    type: String,
-  },
 });
 
 export default models.User || model("User", userSchema);

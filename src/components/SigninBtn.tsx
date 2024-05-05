@@ -3,10 +3,17 @@ import googleIcon from "../../public/icon-google.svg";
 import { signIn } from "@/auth";
 import { auth } from "@/auth";
 import Link from "next/link";
+import axios from "axios";
 
 async function SignInBtn() {
   const session = await auth();
   console.log(session);
+
+  if (session?.user) {
+    const data = session.user;
+    console.log(data, "from the button");
+    axios.post("http://localhost:3000/api/userSave", data);
+  }
 
   if (!session?.user)
     return (
