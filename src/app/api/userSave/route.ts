@@ -10,6 +10,14 @@ export async function POST(req: NextRequest) {
   try {
     connectDB();
     const data = await req.json();
+
+    const existingUser = await User.findOne({ email: data.email });
+    if (existingUser) {
+      return NextResponse.json(
+        { message: `User already exists` },
+        { status: 400 }
+      );
+    }
     const newUser = new User(data);
     const saveUser = await newUser.save();
     console.log(saveUser);

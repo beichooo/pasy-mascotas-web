@@ -1,24 +1,19 @@
 import User from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/libs/mongodb";
+import { connect } from "http2";
 
-export function GET(
-  req: NextRequest,
+export async function GET(
+  request: NextRequest,
   { params }: { params: { taskId: string } }
 ) {
-  console.log(params);
-
-  return NextResponse.json({ message: `Get task ${params.taskId}` });
+  connectDB();
+  const taskFound = await User.findOne({ _id: params.taskId });
+  return NextResponse.json(taskFound);
 }
 
 export async function POST(req: NextRequest) {
   try {
-    connectDB();
-    const data = await req.json();
-    const newUser = new User(data);
-    const saveUser = await newUser.save();
-    console.log(saveUser);
-
     return NextResponse.json({ message: `Created task` });
   } catch (error) {
     return NextResponse.json({ message: error }, { status: 400 });
