@@ -1,6 +1,6 @@
-import ActionBtns from "@/app/components/ActionBtns";
-import Header from "@/app/components/Header";
-import ItemList from "@/app/components/ItemList";
+import ActionBtns from "@/components/ActionBtns";
+import Header from "@/components/Header";
+import ItemList from "@/components/ItemList";
 
 function ResultsPage() {
   return (
