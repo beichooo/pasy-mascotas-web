@@ -9,20 +9,30 @@ export function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     connectDB();
+  } catch (error) {
+    console.error("Database connection failed:", error);
+    return NextResponse.json(
+      { message: "Database connection failed" },
+      { status: 500 }
+    );
+  }
+
+  try {
     const data = await req.json();
+    console.log(data);
 
     const existingUser = await User.findOne({ email: data.email });
+
     if (existingUser) {
-      return NextResponse.json(
-        { message: `User already exists` },
-        { status: 400 }
-      );
+      console.log("User already exists 1");
+      return NextResponse.json({ message: `User already exists` });
     }
+
     const newUser = new User(data);
     const saveUser = await newUser.save();
-    console.log(saveUser);
     return NextResponse.json({ message: `User created` });
   } catch (error) {
-    return NextResponse.json({ message: error }, { status: 400 });
+    console.error("Server error:", error);
+    return NextResponse.json({ message: "Server error" }, { status: 500 });
   }
 }

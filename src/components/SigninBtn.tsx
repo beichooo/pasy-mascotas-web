@@ -3,16 +3,22 @@ import googleIcon from "../../public/icon-google.svg";
 import { signIn } from "@/auth";
 import { auth } from "@/auth";
 import Link from "next/link";
-import axios from "axios";
 
 async function SignInBtn() {
   const session = await auth();
-  console.log(session);
+
+  // TODO: In this part the user only is saved if we return to the home page, we can save the user in the dashboard page
 
   if (session?.user) {
     const data = session.user;
-    console.log(data, "from the button");
-    axios.post("http://localhost:3000/api/userSave", data);
+
+    fetch("http://localhost:3000/api/userSave", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
   }
 
   if (!session?.user)
