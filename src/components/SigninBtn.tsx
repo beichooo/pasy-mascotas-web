@@ -38,7 +38,7 @@ async function SignInBtn() {
             className="flex flex-row gap-2 items-center font-fredoka text-2xl font-medium mx-auto w-fit border-green-600 border-2 bg-white text-green-600 rounded-xl px-3 py-2"
           >
             <Image src={googleIcon} alt="google icon" />
-            Registrarse
+            Iniciar sesión con Google
           </button>
         </form>
       </div>

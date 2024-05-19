@@ -5,6 +5,8 @@ import { auth } from "@/auth";
 
 export default async function Page() {
   const session = await auth();
+  console.log(session?.user?.email);
+
   if (!session) return <div>Porfavor inicia sesión</div>;
 
   return (
