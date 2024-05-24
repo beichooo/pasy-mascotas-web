@@ -7,8 +7,44 @@ import petFace from "../../public/home-pet-face.svg";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SignInBtn from "@/components/SigninBtn";
+import { connectDB } from "@/libs/mongodb";
+import Pet from "@/models/Pet";
+import ItemCard from "@/components/ItemCard";
 
-export default function Home() {
+// TODO: Check if the types are correct
+type Pet = {
+  _id: number;
+  item: any;
+  name: string;
+  gender: string;
+  size: string;
+  address: string;
+  owner: string;
+  health: string;
+  nature: string;
+  whatsapp: number;
+};
+
+async function loadResults() {
+  connectDB();
+  const pets = await Pet.find();
+
+  return pets;
+}
+
+function getRandomPets(pets: any, limit: any) {
+  // Shuffle array
+  const shuffled = pets.sort(() => 0.5 - Math.random());
+
+  // Get sub-array of first n elements after shuffled
+  let selected = shuffled.slice(0, limit);
+
+  return selected;
+}
+
+export default async function Home() {
+  const pets = await loadResults();
+
   return (
     <>
       <Header />
@@ -77,7 +113,11 @@ export default function Home() {
           </h2>
         </section>
       </main>
-      <div></div>
+      <div className="grid grid-cols-2 max-w-[500px] mx-auto gap-4 px-4">
+        {getRandomPets(pets, 2).map((pet: Pet) => (
+          <ItemCard item={pet} key={pet._id} />
+        ))}
+      </div>
       <div className="mb-4">
         <SignInBtn />
       </div>
