@@ -5,7 +5,17 @@ import { auth } from "@/auth";
 
 export default async function Page() {
   const session = await auth();
-  console.log(session?.user?.email);
+  if (session?.user) {
+    const data = session.user;
+
+    fetch("http://localhost:3000/api/userSave", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  }
 
   if (!session) return <div>Porfavor inicia sesión</div>;
 

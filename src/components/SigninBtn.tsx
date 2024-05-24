@@ -7,20 +7,6 @@ import Link from "next/link";
 async function SignInBtn() {
   const session = await auth();
 
-  // TODO: In this part the user only is saved if we return to the home page, we can save the user in the dashboard page
-
-  if (session?.user) {
-    const data = session.user;
-
-    fetch("http://localhost:3000/api/userSave", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-  }
-
   if (!session?.user)
     return (
       <div>

@@ -19,12 +19,11 @@ export async function POST(req: NextRequest) {
 
   try {
     const data = await req.json();
-    console.log(data);
 
     const existingUser = await User.findOne({ email: data.email });
 
     if (existingUser) {
-      console.log("User already exists 1");
+      console.log("User already exists or registered in database");
       return NextResponse.json({ message: `User already exists` });
     }
 
