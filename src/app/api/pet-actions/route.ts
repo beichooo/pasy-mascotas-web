@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import Pet from "@/models/Pet";
 import User from "@/models/User";
 import { connectDB } from "@/libs/mongodb";
-import mongoose from "mongoose";
 
 export function GET(req: NextRequest) {
   return NextResponse.json({ message: "pet-register api ready" });

@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Item {
   id: number;
   name: string;
@@ -7,35 +5,15 @@ interface Item {
   photo: string;
 }
 
-const itemList: Item[] = [
-  {
-    id: 1,
-    name: "Item 1",
-    price: 10,
-    photo:
-      "https://img.freepik.com/free-vector/gradient-n-logo-template_23-2149377854.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1712707200&semt=ais",
-  },
-  {
-    id: 2,
-    name: "Item 2",
-    price: 20,
-    photo:
-      "https://img.freepik.com/free-vector/gradient-n-logo-template_23-2149377854.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1712707200&semt=ais",
-  },
-  {
-    id: 3,
-    name: "Item 3",
-    price: 30,
-    photo:
-      "https://img.freepik.com/free-vector/gradient-n-logo-template_23-2149377854.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1712707200&semt=ais",
-  },
-];
+interface ItemListProps {
+  items: Item[];
+}
 
-const ItemList: React.FC = () => {
+const ItemList: React.FC<ItemListProps> = ({ items }) => {
   return (
     <div className=" flex p-4 justify-center align-middle w-screen">
       <ul className="grid grid-cols-2 gap-2 max-w-[400px]">
-        {itemList.map((item) => (
+        {items.map((item) => (
           <li key={item.id}>
             <img
               src={item.photo}

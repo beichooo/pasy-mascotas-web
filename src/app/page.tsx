@@ -4,7 +4,6 @@ import heroImage from "../../public/hero-img.svg";
 import petsHouseInfo from "../../public/home-info-pet-house.svg";
 import questionMark from "../../public/home-question-mark.svg";
 import petFace from "../../public/home-pet-face.svg";
-import ItemList from "@/components/ItemList";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SignInBtn from "@/components/SigninBtn";
@@ -76,9 +75,9 @@ export default function Home() {
           <h2 className="font-fredoka text-3xl text-pasy-brown-text text-center mt-6 font-medium">
             Mascotas cerca de ti
           </h2>
-          <ItemList />
         </section>
       </main>
+      <div></div>
       <div className="mb-4">
         <SignInBtn />
       </div>
