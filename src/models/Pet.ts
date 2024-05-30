@@ -7,6 +7,11 @@ const petSchema = new Schema({
     trim: true,
     minlength: [3, "El nombre debe tener por lo menos 3 caracteres"],
   },
+  specie: {
+    type: String,
+    required: true,
+    enum: ["Perro", "Gato"],
+  },
   gender: {
     type: String,
     required: true,

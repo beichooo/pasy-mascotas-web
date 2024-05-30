@@ -10,6 +10,7 @@ import SignInBtn from "@/components/SigninBtn";
 import { connectDB } from "@/libs/mongodb";
 import Pet from "@/models/Pet";
 import ItemCard from "@/components/ItemCard";
+import Link from "next/link";
 
 // TODO: Check if the types are correct
 type Pet = {
@@ -31,12 +32,9 @@ async function loadResults() {
 
   return pets;
 }
-
+//TODO: Replace the random selection for a last pets added show
 function getRandomPets(pets: any, limit: any) {
-  // Shuffle array
   const shuffled = pets.sort(() => 0.5 - Math.random());
-
-  // Get sub-array of first n elements after shuffled
   let selected = shuffled.slice(0, limit);
 
   return selected;
@@ -59,10 +57,12 @@ export default async function Home() {
           <h1 className="font-fredoka text-[32px] font-medium text-pasy-brown-text justify-center text-center mb-4">
             Adoptar es un acto de amor
           </h1>
-          <button className=" justify-center font-rubik font-semibold text-xl bg-pasy-brown-text text-white px-4 py-2 rounded-xl mx-auto mb-2 flex flex-row gap-2 align-middle">
-            <Image src={pawIcon} alt="search icon" />
-            BUSCAR UNA MASCOTA
-          </button>
+          <Link href={"/searcher"}>
+            <button className=" justify-center font-rubik font-semibold text-xl bg-pasy-brown-text text-white px-4 py-2 rounded-xl mx-auto mb-2 flex flex-row gap-2 align-middle">
+              <Image src={pawIcon} alt="search icon" />
+              BUSCAR UNA MASCOTA
+            </button>
+          </Link>
           <p className="font-fredoka text-lg font-normal text-center text-pasy-brown-text">
             Un hogar una mascota
           </p>

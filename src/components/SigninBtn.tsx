@@ -6,6 +6,7 @@ import Link from "next/link";
 
 async function SignInBtn() {
   const session = await auth();
+  console.log(session);
 
   if (!session?.user)
     return (
