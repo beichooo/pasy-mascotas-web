@@ -32,8 +32,8 @@ async function loadResults() {
 
   return pets;
 }
-//TODO: Replace the random selection for a last pets added show
-function getRandomPets(pets: any, limit: any) {
+//TODO: Replace the random selection for a last pets added show and for some reason the pets can be repeated in the same list
+function getRandomPets(pets: any, limit: number) {
   const shuffled = pets.sort(() => 0.5 - Math.random());
   let selected = shuffled.slice(0, limit);
 
